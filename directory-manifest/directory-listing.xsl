@@ -57,7 +57,7 @@
   </xsl:template>
 
   <!-- Any comments starting with a keyword indicated are picked up -->
-  <xsl:template mode="report" match="comment()[matches(., '^\s*(Purpose|Dependenc(y|ies)|Input|Output|Note|Description|Steps?|Limitations?):')]">
+  <xsl:template mode="report" match="comment()[matches(., '^\s*(Purpose|Dependenc(y|ies)|Input|Output|Note|Description|Status|Steps?|Limitations?):')]">
     <p>
       <xsl:value-of select="normalize-space(.)"/>
     </p>
