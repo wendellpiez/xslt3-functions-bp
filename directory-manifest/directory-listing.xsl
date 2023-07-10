@@ -38,8 +38,9 @@
 
   <xsl:template match="c:file"/>
 
-  <xsl:template match="c:file[ends-with(@name, 'md')]"/>
-
+  <!-- Note that Markdown (md), HTML and JSON are not included - since we can't parse them without help;
+       for now, we read only XML-based formats -->
+  
   <xsl:template match="c:file[matches(@name, '\.(xml|xpl|sch|xsl|xslt|xsd|xspec)$')]">
     <xsl:variable name="filepath" select="parent::c:directory/@xml:base || string(@name)"/>
     <xsl:variable name="file-document">
@@ -51,13 +52,12 @@
     </xsl:variable>
     <div>
       <h3>{ @name }</h3>
-      <!--<h5>path: { $filepath }:{ doc-available($filepath) } # { document($filepath,.)/*/name() }</h5>-->
       <xsl:apply-templates select="$file-document/*" mode="report"/>
     </div>
   </xsl:template>
 
   <!-- Any comments starting with a keyword indicated are picked up -->
-  <xsl:template mode="report" match="comment()[matches(., '^\s*(Purpose|Dependenc(y|ies)|Input|Output|Note|Description|Status|Steps?|Limitations?):')]">
+  <xsl:template mode="report" match="comment()[matches(., '^\s*(Purpose|Dependenc(y|ies)|Inputs?|Outputs?|Notes?|Description|Status|Steps?|Limitations?):')]">
     <p>
       <xsl:value-of select="normalize-space(.)"/>
     </p>
@@ -129,8 +129,6 @@
 
   <xsl:template match="/*" mode="report" expand-text="true" priority="-0.1">
     <p>Document '{ name() }'{ if (namespace-uri(.)) then (' in namespace ' || namespace-uri(.)) else ', in no namespace'} ({ count(//*) } { if (empty(/*/*)) then ' element' else ' elements' })</p>
-    <!--<xsl:apply-templates mode="#current"/>-->
-    <!--<p>{ serialize(.) }</p>-->
   </xsl:template>
   
 </xsl:stylesheet>

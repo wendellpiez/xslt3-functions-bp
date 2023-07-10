@@ -2,13 +2,13 @@
 
 # Directory Manifest: `directory-manifest`
 
-April 12 2023 5:35 p.m. - 2023-04-12T17:35:46.4135981-04:00 -
+July 10 2023 12:28 p.m. - 2023-07-10T12:28:28.2329021-04:00 -
 
 Listing files suffixed `xml`, `xpl`, `sch`, `xsl`, `xslt`, `xsd` or `xspec`.
 
 ### directory-listing.xsl
 
-XSLT stylesheet version 3.0 (15 templates)
+XSLT stylesheet version 3.0 (14 templates)
 
 Purpose: Produce an HTML report from polling a set of XML files provided as a directory list
 
@@ -63,10 +63,6 @@ Runtime option `path`
 Reads from (p:with-input) - `directory-listing.xsl`
 
 Reads from (p:with-input) - `html-to-markdown.xsl`
-
-### pomx.xml
-
-Failure reading file pomx.xml ::: [err:FODC0002] org.xml.sax.SAXParseException; systemId: file:/C:/Users/wap1/Documents/usnistgov/xslt3-functions/directory-manifest/pomx.xml; lineNumber: 64; columnNumber: 7; The element type "build" must be terminated by the matching end-tag "</build>".(The element type "build" must be terminated by the matching end-tag "</build>".)
 
 -----
 

@@ -16,7 +16,7 @@ The 'runtime' pipelines are hard-coded to produce Markdown (only) and write it t
 
 Both versions use the same XSLT 3.0 transformations internally.
 
-Currently the utility attempts to read files with the suffixes `xml`, `xsd`, `xsl`, `xslt`, `xpr`, `xsd` and `sch`, providing a lightweight but useful synopsis of file contents.
+Currently the utility attempts to read files with filename extensions `xml`, `xpl`, `sch`,  `xsd`, `xsl`, `xslt` and `xspec`, providing a lightweight but useful synopsis of file contents. This match is determined in the `directory-listing.xsl` stylesheet (currently line 43).
 
 ## Dependencies
 
@@ -85,7 +85,7 @@ This is simpler if you have Maven and don't wish to install or wire up for XML C
 
 `mvn-x3f-manifest.sh` - bash shell script, produces a Markdown file `manifest.md` in the current directory
 
-`mvn-x3f-manifest.bat` - Windows (Powershell) batch file, ditto
+`mvn-x3f-manifest.bat` - Windows (Powershell) batch file, ditto. *This is included only for demonstration and to capture a working invocation of XML Calabash in Windows command syntax: YMMV*
 
 `mvn-manifest.sh` - bash shell script, same functionality but simpler, using a wrapper XProc.
 
@@ -97,7 +97,7 @@ Morgana is an implementation of XProc 3.0.
 
 Install the application, adjust paths or scripts, and run the `make-markdown-manifest3.xpl` pipeline.
 
-We had to add a copy of SaxonHE to the classpath so the application could find it. This is a known bug and you may not encounter it.
+We had to add a copy of Saxon-HE to the classpath so the application could find it. This is a known bug and you may not encounter it.
 
 ## Architecture
 
